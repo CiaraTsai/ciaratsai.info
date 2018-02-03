@@ -1,0 +1,87 @@
+<div>
+	<nav class="fh5co-nav" role="navigation">
+		<div class="container-wrap">
+			<div class="top-menu">
+				<div class="row">
+					<div class="col-xs-2">
+						<div id="fh5co-logo"><a href="index.html">Ciara Tsai</a></div>
+					</div>
+					<div id="MenuSelect" class="col-xs-10 text-right menu-1">
+						<ul>
+							<li id="page1" class="active"><a href="index.html">Home</a></li>
+							<li id="page2" ><a href="work.html">Work</a></li>
+							<li id="page3" class="has-dropdown">
+								<a href="blog.html">Blog</a>
+								<!--<ul class="dropdown">
+										<li><a href="#">Web Design</a></li>
+										<li><a href="#">eCommerce</a></li>
+										<li><a href="#">Branding</a></li>
+										<li><a href="#">API</a></li>
+								</ul>-->
+							</li>
+							<li id="page4"><a href="about.html">Profile</a></li>
+							<li id="page5"><a href="contact.html">Contact</a></li>
+						</ul>
+					</div>
+				</div>
+				
+			</div>
+		</div>
+	</nav>
+	<!-- jQuery -->
+	<script src="js/jquery.min.js"></script>
+	<!-- jQuery Easing -->
+	<script src="js/jquery.easing.1.3.js"></script>
+	<!-- Bootstrap -->
+	<script src="js/bootstrap.min.js"></script>
+	<!-- Waypoints -->
+	<script src="js/jquery.waypoints.min.js"></script>
+	<!-- Flexslider -->
+	<script src="js/jquery.flexslider-min.js"></script>
+	<!-- Magnific Popup -->
+	<script src="js/jquery.magnific-popup.min.js"></script>
+	<script src="js/magnific-popup-options.js"></script>
+	<!-- Counters -->
+	<script src="js/jquery.countTo.js"></script>
+	<!-- Main -->
+	<script src="js/main.js"></script>
+	<script>
+		$(function(){
+			$("#page1").click(function(){
+				$("#page1").addClass("active");
+				$("#page2").removeClass("active");
+				$("#page3").removeClass("active");
+				$("#page4").removeClass("active");
+				$("#page5").removeClass("active");
+				});
+			$("#page2").click(function(){
+				$("#page1").removeClass("active");
+				$("#page2").addClass("active");
+				$("#page3").removeClass("active");
+				$("#page4").removeClass("active");
+				$("#page5").removeClass("active");
+				});
+			$("#page3").click(function(){
+				$("#page1").removeClass("active");
+				$("#page2").removeClass("active");
+				$("#page3").addClass("active");
+				$("#page4").removeClass("active");
+				$("#page5").removeClass("active");
+				});
+			$("#page4").click(function(){
+				$("#page1").removeClass("active");
+				$("#page2").removeClass("active");
+				$("#page3").removeClass("active");
+				$("#page4").addClass("active");
+				$("#page5").removeClass("active");
+				});
+			$("#page5").click(function(){
+				$("#page1").removeClass("active");
+				$("#page2").removeClass("active");
+				$("#page3").removeClass("active");
+				$("#page4").removeClass("active");
+				$("#page5").addClass("active");
+				});
+		});
+	</script>
+	<div>
