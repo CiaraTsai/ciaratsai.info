@@ -5,7 +5,7 @@
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<title>Ciara Tsai &mdash; Profile</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<meta name="description" content="Ciara Tsai Personal Web Site" />
+		
 		<link rel='shortcut icon' type='image/x-icon' href='images/profile_logo.ico' />
 		<link href="https://fonts.googleapis.com/css?family=Oxygen:300,400" rel="stylesheet">
 		<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,700" rel="stylesheet">
@@ -36,21 +36,21 @@
 		<script type="text/javascript" language="javascript" src="js/prettify.min.js"></script>
 		<script type="text/javascript" language="javascript" src="js/lang-css.min.js"></script>
 		<script type="text/javascript">
-		function addLoadEvent(func) {
-		var oldonload = window.onload;
-		if (typeof window.onload != 'function') {
-		window.onload = func;
-		} else {
-		window.onload = function() {
-		if (oldonload) {
-		oldonload();
-		}
-		func();
-		}
-		}
-		}
-		addLoadEvent(function() {
-		prettyPrint();
+			function addLoadEvent(func) {
+				var oldonload = window.onload;
+				if (typeof window.onload != 'function') {
+					window.onload = func;
+				} else {
+					window.onload = function() {
+						if (oldonload) {
+							oldonload();
+						}
+						func();
+					}
+				}
+			}
+			addLoadEvent(function() {
+			prettyPrint();
 		});
 		</script>
 		<style type="text/css">
@@ -204,7 +204,7 @@
 								</div>
 					</div>-->
 					<p></p>
-					<div class="col-md-8 col-md-offset-2 text-left animate-box">
+					<div class="col-md-9 col-md-offset-2 text-left animate-box">
 						<pre class="text-left prettyprint lang-javascript linenums">
 /*  Hello There!  */
 function Profile(obj)
@@ -227,7 +227,8 @@ var show = "
     }
   ]
 }";
-Profile(show);			</pre>
+Profile(show);			
+						</pre>
 					</div>
 					<div class="col-md-8 col-md-offset-2 text-left animate-box">
 						<div class="about-desc">
