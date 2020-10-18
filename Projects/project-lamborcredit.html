@@ -181,13 +181,13 @@ Wheel-Design Computer-aided Process Planning Cloud Service (Windows Azure - Publ
 	<div class="container-wrap">
 		<footer id="fh5co-footer" role="contentinfo">
 			<div class="row">
-				<h2>自己實作技術佔成</h2>
+				<h2>Percentage of responsibility</h2>
 				<div id="skillcontainer" style="min-width: 310px; height: 400px; max-width: 600px; margin: 0 auto"></div>
 			</div>
 			<div class="row copyright">
 				<div class="col-md-12 text-center">
 					<p>
-						<small class="block">&copy; 2016 Free HTML5. All Rights Reserved.</small> 
+						<small class="block">&copy; <span id="thisyear"></span> Free HTML5. All Rights Reserved.</small> 
 						<small class="block">Designed by <a href="http://freehtml5.co/" target="_blank">FreeHTML5.co</a> Available at <a href="http://themewagon.com/" target="_blank">Themewagon</a> Demo Images: <a href="http://unsplash.co/" target="_blank">Unsplash</a></small>
 					</p>
 				</div>
@@ -270,6 +270,9 @@ Wheel-Design Computer-aided Process Planning Cloud Service (Windows Azure - Publ
 		        ]
 		    }]
 		});
+		
+		// copyright
+		document.getElementById("thisyear").innerHTML = new Date().getFullYear();
 	</script>
 
 	</body>

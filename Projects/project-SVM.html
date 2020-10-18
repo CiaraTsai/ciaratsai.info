@@ -116,7 +116,7 @@
 				</div>
 				<!--Right Side-->
 				<div class="col-md-4 fh5co-project-detail">
-					<h2 class="fh5co-project-title">Introduce</h2>
+					<h2 class="fh5co-project-title">Introduction</h2>
 					<!--<span class="fh5co-project-sub">台北國際工具機展、AIM-HI, 2013</span>-->					
 					<p>
 						Automated Software Verification是一套協助使用雲端開發人員自動化檢測的一套系統，其是基於工作流程與我們設計的雲端開發框架進行SaaS服務的檢測。只要使用我們提出的框架進行開發，就可額外進行雲端服務軟體的檢測。我們使用WD-CAPP作為實際自動化檢測雲端服務的應用。
@@ -134,7 +134,7 @@
 					</div>
 					<hr>
 					<div class="fh5co-project-service">
-						<h3>主要技術工作</h3>
+						<h3>Work on</h3>
 						<ul>
 							<li>Design (UI)</li>
 							<li>Front-end development</li>
@@ -144,7 +144,7 @@
 					</div>
     				<hr>
 					<div class="fh5co-project-service">
-						<h3>技術層面</h3>
+						<h3>Skills</h3>
 						<ul>
 							<li>Windows Azure (public cloud)</li>
 							<li>Java Web Service</li>
@@ -158,7 +158,7 @@
 					</div>
 					<hr>
 					<div class="fh5co-project-service">
-						<h3>開發過程</h3>
+						<h3>Development Process</h3>
 						<ol>
 							<li>進行需求蒐集。</li>
 							<li>設計開發原則。</li>
@@ -178,13 +178,13 @@
 	<div class="container-wrap">
 		<footer id="fh5co-footer" role="contentinfo">
 			<div class="row">
-				<h2>自己實作技術佔成</h2>
+				<h2>Percentage of responsibility</h2>
 				<div id="skillcontainer" style="min-width: 310px; height: 400px; max-width: 600px; margin: 0 auto"></div>
 			</div>
 			<div class="row copyright">
 				<div class="col-md-12 text-center">
 					<p>
-						<small class="block">&copy; 2018 Ciara Tsai Personal Web Site </small> 
+						<small class="block">&copy; <span id="thisyear"></span> Ciara Tsai Personal Web Site </small> 
 					</p>
 				</div>
 			</div>
@@ -256,6 +256,9 @@
 		        ]
 		    }]
 		});
+
+		// copyright
+		document.getElementById("thisyear").innerHTML = new Date().getFullYear();
 	</script>
 
 	</body>

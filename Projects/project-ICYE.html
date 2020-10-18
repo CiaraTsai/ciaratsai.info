@@ -106,7 +106,7 @@
 				</div>
 				<!--Right Side-->
 				<div class="col-md-4 fh5co-project-detail">
-					<h2 class="fh5co-project-title">Introduce</h2>
+					<h2 class="fh5co-project-title">Introduction</h2>
 					<!--<span class="fh5co-project-sub">台北國際工具機展、AIM-HI, 2013</span>-->					
 					<p>
 						ICYE協會內部想要有一個管理志工通訊錄的系統，並且有簡易查詢的功能，因此系統是用來協助ICYE協會管理志工活動紀錄與基本資料，加上有簡易的查詢功能方便了解志工所有記錄的資料。
@@ -121,7 +121,7 @@
 					</div>
 					<hr>
 					<div class="fh5co-project-service">
-						<h3>主要技術工作</h3>
+						<h3>Work on</h3>
 						<ul>
 							<li>Design (UI, Database...)</li>
 							<li>Front-end development</li>
@@ -130,7 +130,7 @@
 					</div>
     				<hr>
 					<div class="fh5co-project-service">
-						<h3>技術層面</h3>
+						<h3>Skills</h3>
 						<ul>
 							<li>HTML</li>
 							<li>PHP</li>
@@ -142,7 +142,7 @@
 					</div>
 					<hr>
 					<div class="fh5co-project-service">
-						<h3>開發過程</h3>
+						<h3>Development Process</h3>
 						<ol>
 							<li>規劃系統與需求探討。</li>
 							<li>規劃資料庫與系統架構。</li>
@@ -161,13 +161,13 @@
 	<div class="container-wrap">
 		<footer id="fh5co-footer" role="contentinfo">
 			<div class="row">
-				<h2>自己實作技術佔成</h2>
+				<h2>Percentage of responsiblity</h2>
 				<div id="skillcontainer" style="min-width: 310px; height: 400px; max-width: 600px; margin: 0 auto"></div>
 			</div>
 			<div class="row copyright">
 				<div class="col-md-12 text-center">
 					<p>
-						<small class="block">&copy; 2018 Ciara Tsai Personal Web Site </small> 
+						<small class="block">&copy; <span id="this year"></span> Ciara Tsai Personal Web Site </small> 
 					</p>
 				</div>
 			</div>
@@ -241,6 +241,9 @@
 		        ]
 		    }]
 		});
+		
+		// copyright
+		document.getElementById("thisyear").innerHTML = new Date().getFullYear();
 	</script>
 
 	</body>

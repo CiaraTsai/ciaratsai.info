@@ -5,7 +5,6 @@
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<title>Ciara Tsai &mdash; Home </title>
 		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<meta name="description" content="Ciara Tsai Personal Web Site" />
 		
 		<link rel='shortcut icon' type='image/x-icon' href='images/profile_logo.ico' />
 		<link href="css/fontsOxygen300_400.css" rel="stylesheet">
@@ -178,7 +177,7 @@
 							</div>
 							<div class="col-md-12 text-center">
 								<p>
-									<small class="block">&copy; 2018 Ciara Tsai Personal Web Site </small>
+									<small class="block">&copy; <span id="thisyear"></span> Ciara Tsai Personal Web Site </small>
 									
 								</p>
 							</div>
@@ -207,6 +206,9 @@
 		<script src="js/main.js"></script>
 		<script>
 			w3.includeHTML();
+
+			// copyright
+            document.getElementById("thisyear").innerHTML = new Date().getFullYear();
 		</script>
 	</body>
 </html>

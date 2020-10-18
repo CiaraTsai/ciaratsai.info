@@ -185,13 +185,13 @@
 	<div class="container-wrap">
 		<footer id="fh5co-footer" role="contentinfo">
 			<div class="row">
-				<h2>自己實作技術佔成</h2>
+				<h2>Percentage of responsibility</h2>
 				<div id="skillcontainer" style="min-width: 310px; height: 400px; max-width: 600px; margin: 0 auto"></div>
 			</div>
 			<div class="row copyright">
 				<div class="col-md-12 text-center">
 					<p>
-						<small class="block">&copy; 2018 Ciara Tsai Personal Web Site </small>
+						<small class="block">&copy; <span id="thisyear"></span> Ciara Tsai Personal Web Site </small>
 					</p>
 				</div>
 			</div>
@@ -265,6 +265,9 @@
 		        ]
 		    }]
 		});
+
+		// copyright
+		document.getElementById("thisyear").innerHTML = new Date().getFullYear();
 	</script>
 
 	</body>
