@@ -360,7 +360,7 @@ const i18nData = {
             },
             {
                 category: "Cloud / Infrastructure (雲端與維運)", items: [
-                    "AWS", "Kubernetes", "Docker", "Rancher", "GitLab CI/CD"
+                    "AWS", "Docker", "Rancher", "GitLab CI/CD"
                 ]
             },
             {
@@ -388,7 +388,7 @@ const i18nData = {
                     "主導 Production 發版與部署，協調跨職能團隊與工程師在 AWS 上利用 Docker 與 Kubernetes 交付系統更新。",
                     "帶領並指導初階工程師，涵蓋開發規劃、技術概念驗證 (POC)、系統架構設計與線上維運排查。"
                 ],
-                technologies: [".NET (C#)", "Kafka", "Redis", "MongoDB", "AWS", "Docker", "Kubernetes"]
+                technologies: [".NET (C#)", "Kafka", "Redis", "MongoDB", "AWS", "Docker"]
             },
             {
                 id: 1,
@@ -527,6 +527,7 @@ const i18nData = {
 const contactsData = {
     email: "hpp121@gmail.com",
     github: "https://github.com/CiaraTsai",
+    gitlab: "https://gitlab.com/CiaraTsai",
     linkedin: "https://www.linkedin.com/in/yen-ju-tsai-0544676b/",
     resume: "https://www.dropbox.com/scl/fi/6lqwdc0pd5e56xbyihldx/2022-Ciara-Tsai-Online-Resume.docx?rlkey=154g9lxwqslar378pp6c9epgg&st=xa9p2ako&dl=0"
 };
