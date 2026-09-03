@@ -1,0 +1,64 @@
+/* Subtle shine effect on the filled bar */
+.skill-progress-bar::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+    animation: shine 2s infinite;
+}
+
+@keyframes shine {
+    to {
+        left: 200%;
+    }
+}
+
+@keyframes float {
+    0% {
+        transform: translate(0, 0) scale(1);
+    }
+
+    50% {
+        transform: translate(20px, -30px) scale(1.05);
+    }
+
+    100% {
+        transform: translate(-20px, 20px) scale(0.95);
+    }
+}
+
+/* Holographic Scan Animation */
+@keyframes scanline {
+    0% {
+        left: -10%;
+        opacity: 0;
+    }
+
+    10% {
+        opacity: 1;
+    }
+
+    90% {
+        opacity: 1;
+    }
+
+    100% {
+        left: 110%;
+        opacity: 0;
+    }
+}
+
+@keyframes holographic-glow {
+
+    0%,
+    100% {
+        text-shadow: 0 0 8px rgba(34, 211, 238, 0.6);
+    }
+
+    50% {
+        text-shadow: 0 0 15px rgba(34, 211, 238, 0.9), 0 0 25px rgba(34, 211, 238, 0.4);
+    }
+}

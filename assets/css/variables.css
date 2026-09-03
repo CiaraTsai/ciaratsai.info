@@ -1,0 +1,43 @@
+:root {
+    /* Soft-Warm Tech Palette */
+    --bg-primary: #1c1917;
+    /* Stone 900 (Warm Charcoal) */
+    --bg-secondary: #292524;
+    /* Stone 800 */
+    --bg-tertiary: #44403c;
+    /* Stone 700 */
+    --text-primary: #fafaf9;
+    /* Stone 50 */
+    --text-secondary: #d6d3d1;
+    /* Stone 300 (Softer contrast) */
+
+    /* Soft Warm Accents (Rose Gold / Muted Coral) */
+    --accent-color: #e2a397;
+    /* Muted Rose Gold */
+    --accent-glow: rgba(226, 163, 151, 0.3);
+    --accent-hover: #f0a58e;
+    /* Soft Coral */
+    --secondary-accent: #a8a29e;
+    /* Muted Stone */
+
+    /* Glassmorphism & Borders */
+    --card-bg: rgba(41, 37, 36, 0.5);
+    /* Softer glass */
+    --card-border: rgba(226, 163, 151, 0.15);
+    --glass-blur: blur(20px);
+
+    /* Layout */
+    --max-width: 1400px;
+    --nav-height: 80px;
+
+    /* Tech Effects (Softened) */
+    --shadow-sm: 0 4px 10px rgba(0, 0, 0, 0.3);
+    --shadow-md: 0 10px 40px rgba(0, 0, 0, 0.4);
+    --shadow-glow: 0 0 25px var(--accent-glow);
+    --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+    --transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+
+    /* Grids & Scanning (Subtle Warmth) */
+    --grid-color: rgba(226, 163, 151, 0.02);
+    --scanline-color: rgba(226, 163, 151, 0.005);
+}
