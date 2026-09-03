@@ -33,9 +33,6 @@
 
   <div id="footer-container"></div>
 
-  <!-- Web3Forms Captcha Script -->
-  <script src="https://web3forms.com/client/script.js" async defer></script>
-
   <!-- Template Components (Script modules for modularity without fetch) -->
   <script src="assets/js/templates/layout.js"></script>
   <script src="assets/js/templates/hero.js"></script>
@@ -57,6 +54,20 @@
         element.classList.add('copied');
         setTimeout(() => {
           element.classList.remove('copied');
+        }, 2000);
+      });
+    }
+
+    function copyContactText(element, text) {
+      navigator.clipboard.writeText(text).then(() => {
+        const textSpan = element.querySelector('.btn-text');
+        const copiedText = element.getAttribute('data-copied-text') || 'Copied!';
+        const originalText = textSpan ? textSpan.textContent : '';
+        element.classList.add('copied');
+        if (textSpan) textSpan.textContent = copiedText;
+        setTimeout(() => {
+          element.classList.remove('copied');
+          if (textSpan) textSpan.textContent = originalText;
         }, 2000);
       });
     }

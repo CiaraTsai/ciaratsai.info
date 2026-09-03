@@ -44,12 +44,24 @@ const i18nData = {
             }
         },
         contact: {
-            title: "Let's work together!",
-            subtitle: "Looking for a seasoned developer? Let's talk.",
-            namePlaceholder: "Your Name",
-            emailPlaceholder: "your.email@example.com",
-            messagePlaceholder: "How can I help you?",
-            submitBtn: "Send Message"
+            title: "Let's Connect!",
+            subtitle: "Whether you want to discuss a project, talk about tech, or just say hi, feel free to reach out through any of the channels below.",
+            emailTitle: "Email",
+            emailDesc: "Direct communication for projects & inquiries",
+            linkedinTitle: "LinkedIn",
+            linkedinDesc: "Professional network & career updates",
+            githubTitle: "GitHub",
+            githubDesc: "Open source projects & code repositories",
+            gitlabTitle: "GitLab",
+            gitlabDesc: "Projects & CI/CD workflow repositories",
+            resumeTitle: "Online Resume",
+            resumeDesc: "Comprehensive CV & career history file",
+            copyBtn: "Copy",
+            copiedBtn: "Copied!",
+            sendEmailBtn: "Send Email",
+            viewBtn: "Open Profile",
+            viewRepoBtn: "View Repos",
+            viewResumeBtn: "View Resume"
         },
         profile: {
             name: "Ciara Tsai",
@@ -305,12 +317,24 @@ const i18nData = {
             }
         },
         contact: {
-            title: "攜手合作，共創卓越",
-            subtitle: "正在尋找具備深厚架構經驗的資深工程師？歡迎隨時與我聯繫！",
-            namePlaceholder: "您的姓名",
-            emailPlaceholder: "your.email@example.com",
-            messagePlaceholder: "請描述您的需求或想聊聊的主題...",
-            submitBtn: "發送訊息"
+            title: "歡迎聯繫！",
+            subtitle: "無論是專案合作、技術交流，或只是想打個招呼，隨時歡迎透過以下管道找到我！",
+            emailTitle: "電子信箱",
+            emailDesc: "最直接的聯繫方式，歡迎來信洽談專案與合作",
+            linkedinTitle: "LinkedIn",
+            linkedinDesc: "職涯歷程、人脈連結與專業交流",
+            githubTitle: "GitHub",
+            githubDesc: "個人開源專案、代碼庫與技術實踐",
+            gitlabTitle: "GitLab",
+            gitlabDesc: "專案存儲庫與 CI/CD 工作流展示",
+            resumeTitle: "個人履歷",
+            resumeDesc: "完整經歷、專案架構與技能細節檔案",
+            copyBtn: "複製",
+            copiedBtn: "已複製！",
+            sendEmailBtn: "寄送信件",
+            viewBtn: "前往瀏覽",
+            viewRepoBtn: "查看專案庫",
+            viewResumeBtn: "檢視履歷"
         },
         profile: {
             name: "蔡燕如",
