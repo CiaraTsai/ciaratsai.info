@@ -10,6 +10,7 @@ const NAVBAR_HTML = `
         <a href="#books" data-i18n="nav.books">Books</a>
         <a href="#contact" data-i18n="nav.contact">Contact</a>
         <button id="lang-toggle" class="btn btn-secondary lang-btn">EN / 中</button>
+        <button id="theme-toggle" class="btn btn-secondary theme-btn" aria-label="Toggle Theme" title="Toggle Theme"><i data-lucide="moon" id="theme-icon"></i></button>
       </div>
       <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Toggle Menu">
         <i data-lucide="menu"></i>
@@ -22,7 +23,10 @@ const NAVBAR_HTML = `
       <a href="#contest" data-i18n="nav.contest">Contest</a>
       <a href="#books" data-i18n="nav.books">Books</a>
       <a href="#contact" data-i18n="nav.contact">Contact</a>
-      <button id="lang-toggle-mobile" class="btn btn-secondary lang-btn" style="margin-top: 10px;">EN / 中</button>
+      <div class="row gap" style="margin-top: 10px;">
+        <button id="lang-toggle-mobile" class="btn btn-secondary lang-btn">EN / 中</button>
+        <button id="theme-toggle-mobile" class="btn btn-secondary theme-btn" aria-label="Toggle Theme" title="Toggle Theme"><i data-lucide="moon" id="theme-icon-mobile"></i></button>
+      </div>
     </div>
   </nav>
 `;
@@ -30,5 +34,6 @@ const NAVBAR_HTML = `
 const FOOTER_HTML = `
   <footer class="footer">
     <p>&copy; <span id="current-year"></span> Ciara Tsai Personal Web Site. All rights reserved.</p>
+    <p class="footer-note" data-i18n="footer.aiNotice">本網站是使用 Gemini AI 輔助設計</p>
   </footer>
 `;

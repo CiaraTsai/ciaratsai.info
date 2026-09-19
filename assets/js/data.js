@@ -63,13 +63,16 @@ const i18nData = {
             viewRepoBtn: "View Repos",
             viewResumeBtn: "View Resume"
         },
+        footer: {
+            aiNotice: "Designed with Gemini AI assistance"
+        },
         profile: {
             name: "Ciara Tsai",
             effectName: "Ciara Tsai",
             effectHoverName: "Yen Ju Tsai",
             hoverName: "Ciara Tsai",
             title: "Senior Software Engineer",
-            slogan: "Doing my best to move the world perfectly one step forward is my definition of success.",
+            slogan: "Boundless curiosity, diving into unknowns to solve great challenges.",
             about: [
                 "I am a Senior Software Engineer specializing in backend architecture, database systems, distributed systems, and high-throughput real-time platforms.",
                 "I enjoy solving performance and reliability challenges in high-traffic and high-concurrency environments, and building scalable and reliable backend services. My experience includes system architecture, performance optimization, large-scale data processing, cloud deployment, and production troubleshooting.",
@@ -117,11 +120,6 @@ const i18nData = {
             {
                 category: "Observability", items: [
                     "ELK", "OpenTelemetry", "Grafana"
-                ]
-            },
-            {
-                category: "Methodologies", items: [
-                    "Scrum", "Agile", "Technical Leadership"
                 ]
             }
         ],
@@ -194,6 +192,19 @@ const i18nData = {
                     "Designed and implemented database architecture and backend business logic for game platforms, administration systems, and accounting/reporting workflows."
                 ],
                 technologies: [".NET MVC & Core (C#)", "JavaScript", "Redis", "MSSQL", "NetMQ", "SignalR", "Angular", "MongoDB"]
+            },
+            {
+                id: 5,
+                role: "System Engineering Intern",
+                company: "Zhi-Huang Network Technology, Taiwan",
+                period: "07/2011 - 09/2011",
+                project: "EasyTravel (四方通行) - Mobile Application Engineer (Android)",
+                description: [
+                    "Developed and maintained mobile features for Android applications.",
+                    "Engineered location-based mapping features, integrating GIS and Google Maps API for positioning and map rendering.",
+                    "Contributed to the development of a diary/blogging platform using PHP and MySQL."
+                ],
+                technologies: ["Android", "Java", "GIS", "Google Maps API", "PHP", "MySQL"]
             }
         ],
         projects: [
@@ -336,13 +347,16 @@ const i18nData = {
             viewRepoBtn: "查看專案庫",
             viewResumeBtn: "檢視履歷"
         },
+        footer: {
+            aiNotice: "本網站是使用 Gemini AI 輔助設計"
+        },
         profile: {
             name: "蔡燕如",
             effectName: "蔡燕如",
             effectHoverName: "Ciara Tsai",
             hoverName: "蔡燕如",
             title: "資深軟體工程師",
-            slogan: "盡我所能，推動世界往更美好的方向前進一步，即是我對成功的定義。",
+            slogan: "我擁有不設限的好奇心，我喜歡鑽進未知的科技領域解決難題",
             about: [
                 "我是一名資深軟體工程師，專長於後端架構、資料庫系統、分散式系統，以及高吞吐量的即時平台。",
                 "我喜歡解決高流量與高併發環境下的效能與穩定性問題，並打造具備高擴展性與可靠性的後端服務。過去的經驗涵蓋系統架構設計、效能優化、大規模資料處理、雲端部署，以及 Production 問題排查。",
@@ -390,11 +404,6 @@ const i18nData = {
             {
                 category: "Observability (可觀測性與監控)", items: [
                     "ELK", "OpenTelemetry", "Grafana"
-                ]
-            },
-            {
-                category: "Methodologies (專案方法與領導)", items: [
-                    "Scrum", "Agile", "Technical Leadership"
                 ]
             }
         ],
@@ -467,6 +476,19 @@ const i18nData = {
                     "為遊戲平台、管理後台以及會計／報表工作流程規劃並實作資料庫架構與後端商業邏輯。"
                 ],
                 technologies: [".NET MVC & Core (C#)", "JavaScript", "Redis", "MSSQL", "NetMQ", "SignalR", "Angular", "MongoDB"]
+            },
+            {
+                id: 5,
+                role: "系統工程實習生 (System Engineering Intern)",
+                company: "智凰網路科技公司 (Zhi-Huang Network Technology)",
+                period: "07/2011 - 09/2011",
+                project: "四方通行 行動裝置軟體開發工程師",
+                description: [
+                    "負責 Android 行動裝置軟體開發與功能維護。",
+                    "開發行動裝置定位製圖技術，整合 GIS 與 Google Maps API 實現地圖標記與定位功能。",
+                    "參與寫日記平台系統與資料庫開發 (PHP & MySQL)。"
+                ],
+                technologies: ["Android", "Java", "GIS", "Google Maps API", "PHP", "MySQL"]
             }
         ],
         projects: [

@@ -1,43 +1,80 @@
-:root {
-    /* Soft-Warm Tech Palette */
-    --bg-primary: #1c1917;
-    /* Stone 900 (Warm Charcoal) */
-    --bg-secondary: #292524;
-    /* Stone 800 */
-    --bg-tertiary: #44403c;
-    /* Stone 700 */
-    --text-primary: #fafaf9;
-    /* Stone 50 */
-    --text-secondary: #d6d3d1;
-    /* Stone 300 (Softer contrast) */
+:root,
+[data-theme="light"] {
+    /* User Specified 4-Color Palette */
+    --c-sage: #8B9A6E;       /* Primary Accent & Brand */
+    --c-cream: #F7F2EB;      /* Main Canvas & Light Tone */
+    --c-sand: #EAE2D6;       /* Secondary Section & Card Tint */
+    --c-grey: #EEEEEE;       /* Neutral Surface & Border */
 
-    /* Soft Warm Accents (Rose Gold / Muted Coral) */
-    --accent-color: #e2a397;
-    /* Muted Rose Gold */
-    --accent-glow: rgba(226, 163, 151, 0.3);
-    --accent-hover: #f0a58e;
-    /* Soft Coral */
-    --secondary-accent: #a8a29e;
-    /* Muted Stone */
+    /* Theme Variables Remapping (Light) */
+    --bg-primary: #F7F2EB;
+    --bg-secondary: #EAE2D6;
+    --bg-tertiary: #EEEEEE;
 
-    /* Glassmorphism & Borders */
-    --card-bg: rgba(41, 37, 36, 0.5);
-    /* Softer glass */
-    --card-border: rgba(226, 163, 151, 0.15);
-    --glass-blur: blur(20px);
+    --text-primary: #2C3322;
+    --text-secondary: #5F6B49;
 
-    /* Layout */
+    --accent-color: #8B9A6E;
+    --accent-glow: rgba(139, 154, 110, 0.28);
+    --accent-hover: #75835C;
+    --secondary-accent: #8B9A6E;
+
+    --card-bg: rgba(247, 242, 235, 0.9);
+    --card-solid: #FFFFFF;
+    --card-border: #EAE2D6;
+    --glass-blur: blur(16px);
+
+    --shadow-sm: 0 4px 12px rgba(139, 154, 110, 0.08);
+    --shadow-md: 0 10px 30px rgba(139, 154, 110, 0.12);
+    --shadow-glow: 0 0 20px rgba(139, 154, 110, 0.35);
+    --glass-shadow: 0 8px 32px 0 rgba(139, 154, 110, 0.08);
+
+    --grid-color: rgba(139, 154, 110, 0.08);
+    --scanline-color: rgba(139, 154, 110, 0.02);
+    --navbar-bg: rgba(247, 242, 235, 0.88);
+    --navbar-scrolled: rgba(247, 242, 235, 0.98);
+
+    /* Layout & Globals */
     --max-width: 1400px;
     --nav-height: 80px;
+    --transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
 
-    /* Tech Effects (Softened) */
+[data-theme="dark"] {
+    /* Soft-Warm Dark Tech Palette */
+    --c-sage: #e2a397;
+    --c-cream: #1c1917;
+    --c-sand: #292524;
+    --c-grey: #44403c;
+
+    --bg-primary: #1c1917;
+    --bg-secondary: #292524;
+    --bg-tertiary: #44403c;
+
+    --text-primary: #fafaf9;
+    --text-secondary: #d6d3d1;
+
+    --accent-color: #e2a397;
+    --accent-glow: rgba(226, 163, 151, 0.3);
+    --accent-hover: #f0a58e;
+    --secondary-accent: #a8a29e;
+
+    --card-bg: rgba(41, 37, 36, 0.65);
+    --card-solid: #24201e;
+    --card-border: rgba(226, 163, 151, 0.18);
+    --glass-blur: blur(20px);
+
     --shadow-sm: 0 4px 10px rgba(0, 0, 0, 0.3);
     --shadow-md: 0 10px 40px rgba(0, 0, 0, 0.4);
     --shadow-glow: 0 0 25px var(--accent-glow);
     --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
-    --transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
 
-    /* Grids & Scanning (Subtle Warmth) */
-    --grid-color: rgba(226, 163, 151, 0.02);
-    --scanline-color: rgba(226, 163, 151, 0.005);
+    --grid-color: rgba(226, 163, 151, 0.03);
+    --scanline-color: rgba(226, 163, 151, 0.008);
+    --navbar-bg: rgba(28, 25, 23, 0.88);
+    --navbar-scrolled: rgba(28, 25, 23, 0.98);
+
+    --max-width: 1400px;
+    --nav-height: 80px;
+    --transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
 }

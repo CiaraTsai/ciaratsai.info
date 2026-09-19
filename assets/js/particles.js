@@ -7,7 +7,12 @@ function initParticles() {
     let width, height;
     let particles = [];
 
-    const colors = ['rgba(59, 130, 246, 0.4)', 'rgba(147, 197, 253, 0.6)'];
+    function getBgParticleColors() {
+        const theme = document.documentElement.getAttribute('data-theme') || 'light';
+        return theme === 'dark'
+            ? ['rgba(226, 163, 151, 0.35)', 'rgba(240, 165, 142, 0.35)', 'rgba(250, 250, 249, 0.2)']
+            : ['rgba(139, 154, 110, 0.35)', 'rgba(117, 131, 92, 0.45)', 'rgba(234, 226, 214, 0.5)'];
+    }
 
     function resize() {
         width = window.innerWidth;
@@ -23,6 +28,7 @@ function initParticles() {
             this.size = Math.random() * 2 + 1;
             this.speedX = Math.random() * 0.4 - 0.2;
             this.speedY = Math.random() * 0.4 - 0.2;
+            const colors = getBgParticleColors();
             this.color = colors[Math.floor(Math.random() * colors.length)];
         }
         update() {
@@ -68,7 +74,9 @@ function initParticles() {
 
                 if (dist < 150) { // Increased connection distance
                     ctx.beginPath();
-                    ctx.strokeStyle = `rgba(56, 189, 248, ${0.1 * (1 - dist / 150)})`; // Neon color, adjusted alpha
+                    const theme = document.documentElement.getAttribute('data-theme') || 'light';
+                    const strokeRgb = theme === 'dark' ? '226, 163, 151' : '139, 154, 110';
+                    ctx.strokeStyle = `rgba(${strokeRgb}, ${0.12 * (1 - dist / 150)})`;
                     ctx.lineWidth = 0.5; // Thinner lines
                     ctx.moveTo(p1.x, p1.y);
                     ctx.lineTo(p2.x, p2.y);
@@ -78,6 +86,13 @@ function initParticles() {
         }
         requestAnimationFrame(animate);
     }
+
+    window.refreshBgParticles = function() {
+        const newColors = getBgParticleColors();
+        particles.forEach(p => {
+            p.color = newColors[Math.floor(Math.random() * newColors.length)];
+        });
+    };
 
     window.addEventListener('resize', () => {
         resize();
