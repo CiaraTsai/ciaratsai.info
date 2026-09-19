@@ -33,6 +33,9 @@ function switchLanguage(lang) {
     document.documentElement.lang = currentLang;
 
     if (window.nameEffect) {
+        if (typeof window.nameEffect.resetState === 'function') {
+            window.nameEffect.resetState();
+        }
         window.nameEffect.setText(i18nData[lang].profile.effectName);
     }
 }

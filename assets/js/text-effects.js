@@ -76,24 +76,18 @@ class ParticleText {
         // Configuration
         this.sampling = 1; // Ultra-Density: every pixel
         this.color = '#3b82f6';
+        this.currentText = '';
 
         window.addEventListener('resize', () => this.resize());
-        this.resize();
     }
 
     resize() {
-        const rect = this.textElement.getBoundingClientRect();
-        const dpr = window.devicePixelRatio || 1;
-
-        // Increase padding to 100px so particles have more "flight space" without clipping
-        const padding = 100;
-        this.canvas.width = (rect.width + padding) * dpr;
-        this.canvas.height = (rect.height + padding) * dpr;
-        this.canvas.style.width = `${rect.width + padding}px`;
-        this.canvas.style.height = `${rect.height + padding}px`;
-
-        this.ctx.scale(dpr, dpr);
-        this.ctx.translate(padding / 2, padding / 2);
+        if (this.currentText) {
+            clearTimeout(this.resizeTimeout);
+            this.resizeTimeout = setTimeout(() => {
+                if (this.currentText) this.setText(this.currentText);
+            }, 100);
+        }
     }
 
     setText(text) {
@@ -102,36 +96,81 @@ class ParticleText {
         const tempCanvas = document.createElement('canvas');
         const tempCtx = tempCanvas.getContext('2d', { willReadFrequently: true });
 
-        const parentStyle = window.getComputedStyle(this.textElement.parentElement.parentElement);
-        const fontSize = parseInt(parentStyle.fontSize);
-        const fontWeight = parentStyle.fontWeight;
+        // Get computed font size from parent title or element
+        const parent = this.textElement ? (this.textElement.closest('.hero-title') || this.textElement.parentElement) : null;
+        const parentStyle = parent ? window.getComputedStyle(parent) : null;
+        const fontSize = parentStyle ? parseInt(parentStyle.fontSize) : 32;
+        const fontWeight = parentStyle ? parentStyle.fontWeight : 600;
 
-        // Use high-DPI for the sampling canvas too
-        tempCanvas.width = this.canvas.width;
-        tempCanvas.height = this.canvas.height;
+        const fontStr = `${fontWeight} ${fontSize}px Outfit, -apple-system, BlinkMacSystemFont, "PingFang TC", "Noto Sans TC", "Microsoft JhengHei", "Segoe UI", sans-serif`;
+        tempCtx.font = fontStr;
+
+        // Measure text with exact metrics
+        const metrics = tempCtx.measureText(text);
+        const textWidth = Math.ceil(metrics.width);
+        const textHeight = Math.ceil(fontSize * 1.6);
+
+        // Pre-measure both effect names to ensure a stable canvas dimension
+        // so canvas doesn't resize or trigger synthetic mouseleave events during hover transitions
+        let maxTextW = textWidth;
+        try {
+            if (typeof i18nData !== 'undefined' && typeof currentLang !== 'undefined' && i18nData[currentLang]?.profile) {
+                const p = i18nData[currentLang].profile;
+                if (p.effectName) maxTextW = Math.max(maxTextW, Math.ceil(tempCtx.measureText(p.effectName).width));
+                if (p.effectHoverName) maxTextW = Math.max(maxTextW, Math.ceil(tempCtx.measureText(p.effectHoverName).width));
+            }
+        } catch (e) {}
+
+        // Generous padding around the text so particles never get clipped
+        const horizontalPadding = 80;
+        const verticalPadding = 40;
+        const totalW = Math.max(maxTextW + horizontalPadding, 260);
+        const totalH = textHeight + verticalPadding;
+
+        // Set Main Canvas with integer backing store
+        const canvasWidth = Math.ceil(totalW * dpr);
+        const canvasHeight = Math.ceil(totalH * dpr);
+
+        if (this.canvas.width !== canvasWidth || this.canvas.height !== canvasHeight) {
+            this.canvas.width = canvasWidth;
+            this.canvas.height = canvasHeight;
+            this.canvas.style.width = `${totalW}px`;
+            this.canvas.style.height = `${totalH}px`;
+            this.canvas.style.maxWidth = '100vw';
+
+            // Translate origin to exact center of main canvas
+            this.ctx.setTransform(1, 0, 0, 1, 0, 0);
+            this.ctx.scale(dpr, dpr);
+            this.ctx.translate(totalW / 2, totalH / 2);
+        }
+
+        // Set Temp Sampling Canvas
+        tempCanvas.width = canvasWidth;
+        tempCanvas.height = canvasHeight;
+        tempCtx.setTransform(1, 0, 0, 1, 0, 0);
         tempCtx.scale(dpr, dpr);
 
         tempCtx.fillStyle = 'white';
-        tempCtx.font = `${fontWeight} ${fontSize}px Outfit`;
-        tempCtx.textAlign = 'left';
+        tempCtx.font = fontStr;
+        if ('letterSpacing' in tempCtx) {
+            tempCtx.letterSpacing = '1px';
+        }
+        tempCtx.textAlign = 'center';
         tempCtx.textBaseline = 'middle';
+        tempCtx.fillText(text, totalW / 2, totalH / 2);
 
-        // Draw centered in the padded area (padding/2 translate from resize)
-        const xPos = 10; // Add small padding on the left to avoid clipping
-        const baselineY = (this.canvas.height / dpr) / 2;
-        tempCtx.fillText(text, xPos, baselineY);
-
-        const imageData = tempCtx.getImageData(0, 0, tempCanvas.width, tempCanvas.height);
+        const imgData = tempCtx.getImageData(0, 0, canvasWidth, canvasHeight).data;
         const newTargets = [];
-        const border = 5 * dpr;
+        const step = Math.max(1, Math.round(dpr));
 
-        for (let y = border; y < tempCanvas.height - border; y += this.sampling) {
-            for (let x = border; x < tempCanvas.width - border; x += this.sampling) {
-                const index = (x + y * tempCanvas.width) * 4;
-                if (imageData.data[index + 3] > 128) {
+        for (let py = 0; py < canvasHeight; py += step) {
+            const rowOffset = py * canvasWidth;
+            for (let px = 0; px < canvasWidth; px += step) {
+                const alpha = imgData[(rowOffset + px) * 4 + 3];
+                if (alpha > 128) {
                     newTargets.push({
-                        x: (x / dpr) - 50, // Adjust for larger padding (100/2)
-                        y: (y / dpr) - baselineY
+                        x: (px - canvasWidth / 2) / dpr,
+                        y: (py - canvasHeight / 2) / dpr
                     });
                 }
             }
@@ -152,8 +191,8 @@ class ParticleText {
             p.targetY = newTargets[i].y;
             p.color = currentColors[Math.floor(Math.random() * currentColors.length)];
             // Burst
-            p.curX += (Math.random() - 0.5) * 50;
-            p.curY += (Math.random() - 0.5) * 50;
+            p.curX += (Math.random() - 0.5) * 40;
+            p.curY += (Math.random() - 0.5) * 40;
         });
 
         if (!this.animationId) this.animate();
@@ -170,9 +209,8 @@ class ParticleText {
     }
 
     animate() {
-        // Clear a much larger area to ensure no ghosting or clipping
-        const padding = 100;
-        this.ctx.clearRect(-padding, -this.canvas.height, this.canvas.width * 2, this.canvas.height * 2);
+        // Clear entire canvas area centered at origin
+        this.ctx.clearRect(-this.canvas.width, -this.canvas.height, this.canvas.width * 2, this.canvas.height * 2);
         let active = false;
 
         this.particles.forEach(p => {

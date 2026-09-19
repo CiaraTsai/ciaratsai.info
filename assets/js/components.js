@@ -51,14 +51,39 @@ function bindNavbarLogic() {
   const mobileLinks = document.getElementById("mobile-links");
 
   if (mobileMenuBtn && mobileLinks) {
-    mobileMenuBtn.addEventListener("click", () => {
-      mobileLinks.classList.toggle("active");
+    function updateMenuState(isOpen) {
+      if (isOpen) {
+        mobileLinks.classList.add("active");
+        mobileMenuBtn.innerHTML = '<i data-lucide="x"></i>';
+      } else {
+        mobileLinks.classList.remove("active");
+        mobileMenuBtn.innerHTML = '<i data-lucide="menu"></i>';
+      }
+      if (typeof lucide !== 'undefined') lucide.createIcons();
+    }
+
+    mobileMenuBtn.addEventListener("click", (e) => {
+      e.stopPropagation();
+      const willOpen = !mobileLinks.classList.contains("active");
+      updateMenuState(willOpen);
     });
 
     Array.from(mobileLinks.querySelectorAll("a")).forEach(link => {
       link.addEventListener("click", () => {
-        mobileLinks.classList.remove("active");
+        updateMenuState(false);
       });
+    });
+
+    document.addEventListener("click", (e) => {
+      if (!navbar.contains(e.target) && mobileLinks.classList.contains("active")) {
+        updateMenuState(false);
+      }
+    });
+
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape" && mobileLinks.classList.contains("active")) {
+        updateMenuState(false);
+      }
     });
   }
 }
