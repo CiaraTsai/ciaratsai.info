@@ -34,12 +34,23 @@
 
 .mobile-menu-btn {
     color: var(--text-primary);
+    background-color: var(--bg-secondary);
+    border: 1px solid var(--card-border);
+}
+
+.mobile-menu-btn:hover,
+.mobile-menu-btn:active {
+    background-color: var(--accent-glow);
+    color: var(--accent-color);
+    border-color: var(--accent-color);
 }
 
 /* Theme Toggle & Language Buttons */
-.nav-links {
-    display: flex;
-    align-items: center;
+@media (min-width: 769px) {
+    .nav-links {
+        display: flex;
+        align-items: center;
+    }
 }
 
 .theme-btn,

@@ -100,6 +100,7 @@ function bindGlowTracking() {
 
 function initHeroEffect() {
     const nameCanvas = document.getElementById("name-canvas");
+    const nameContainer = document.getElementById("hero-name-container");
     if (!nameCanvas) return;
 
     const effect = new ParticleText("name-canvas", "hero-name-placeholder");
@@ -109,15 +110,65 @@ function initHeroEffect() {
         effect.setText(initialEffectName);
     });
 
-    nameCanvas.addEventListener("mouseenter", () => {
+    let isEffectActive = false;
+
+    function activateHover() {
+        if (isEffectActive) return;
+        isEffectActive = true;
         const hoverName = i18nData[currentLang].profile.effectHoverName;
         effect.setText(hoverName);
-    });
+    }
 
-    nameCanvas.addEventListener("mouseleave", () => {
+    function resetOriginal() {
+        if (!isEffectActive) return;
+        isEffectActive = false;
         const originalName = i18nData[currentLang].profile.effectName;
         effect.setText(originalName);
+    }
+
+    const container = nameContainer || nameCanvas;
+
+    // 1. 電腦網頁版：滑鼠移過去變為 hoverName
+    function handleMouseEnter() {
+        activateHover();
+    }
+
+    function handleMouseLeave(e) {
+        const nextTarget = e.relatedTarget;
+        if (container && nextTarget && container.contains(nextTarget)) return;
+        if (nameCanvas && nextTarget && nameCanvas.contains(nextTarget)) return;
+        resetOriginal();
+    }
+
+    container.addEventListener("mouseenter", handleMouseEnter);
+    container.addEventListener("mouseleave", handleMouseLeave);
+    nameCanvas.addEventListener("mouseenter", handleMouseEnter);
+    nameCanvas.addEventListener("mouseleave", handleMouseLeave);
+
+    // 2. 點擊名字：
+    // 若尚未啟動，點擊變成 hoverName；
+    // 若已經是 hoverName，點擊不做任何反應！
+    function handleNameClick(e) {
+        e.stopPropagation();
+        if (!isEffectActive) {
+            activateHover();
+        }
+        // 如果已經顯示 hoverName，再點擊不做任何反應
+    }
+
+    container.addEventListener("click", handleNameClick);
+    nameCanvas.addEventListener("click", handleNameClick);
+
+    // 3. 在旁邊空白處點擊：才回到原始名字
+    document.addEventListener("click", (e) => {
+        if (!isEffectActive) return;
+        if (container.contains(e.target) || e.target === nameCanvas) return;
+        resetOriginal();
     });
+
+    effect.resetState = () => {
+        isEffectActive = false;
+    };
 
     window.nameEffect = effect;
 }
