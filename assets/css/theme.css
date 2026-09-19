@@ -374,3 +374,17 @@
     margin-top: 6px;
     letter-spacing: 0.5px;
 }
+
+/* Hero Video Canvas Theming - 100% Seamless Background Integration */
+.hero-video-wrapper {
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    outline: none !important;
+}
+
+.hero-canvas {
+    background: transparent;
+}
+
+

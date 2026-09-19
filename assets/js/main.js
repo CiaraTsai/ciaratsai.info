@@ -79,6 +79,11 @@ document.addEventListener("DOMContentLoaded", () => {
             timelineContent.classList.toggle('flipped');
         }
     });
+
+    // 11. Initialize Transparent WebGL Hero Video Player
+    if (typeof initHeroVideo === 'function') {
+        initHeroVideo();
+    }
 });
 
 function bindGlowTracking() {

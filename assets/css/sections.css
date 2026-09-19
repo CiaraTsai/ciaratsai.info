@@ -1,21 +1,97 @@
 /* Hero */
 .hero {
     display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 48px;
     max-height: 1000px;
     min-height: 100vh;
-    padding-top: calc(var(--nav-height) + 60px);
+    padding-top: calc(var(--nav-height) + 40px);
+    padding-bottom: 40px;
     position: relative;
 }
 
-
 .hero-content {
-    flex: 1;
+    flex: 1 1 52%;
+    max-width: 680px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     z-index: 2;
     padding-right: 0;
 }
+
+.hero-media {
+    flex: 1 1 45%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2;
+    height: 100%;
+    max-height: min(720px, calc(100vh - var(--nav-height) - 80px));
+}
+
+.hero-video-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: transparent;
+    border: none;
+    border-radius: 0;
+    box-shadow: none;
+    transition: var(--transition);
+}
+
+.hero-video-wrapper:hover {
+    transform: translateY(-4px);
+}
+
+.hero-canvas {
+    display: block;
+    height: auto;
+    max-height: min(650px, calc(100vh - var(--nav-height) - 100px));
+    width: auto;
+    max-width: 100%;
+    aspect-ratio: 720 / 1280;
+    pointer-events: none;
+    user-select: none;
+    background: transparent;
+}
+
+.hero-video-source {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    opacity: 0.001;
+    pointer-events: none;
+    z-index: -9999;
+    top: 0;
+    left: 0;
+}
+
+/* Fallback for file:// protocol or non-WebGL environments */
+.hero-video-fallback {
+    display: block;
+    height: auto;
+    max-height: min(650px, calc(100vh - var(--nav-height) - 100px));
+    width: auto;
+    max-width: 100%;
+    aspect-ratio: 720 / 1280;
+    pointer-events: none;
+    user-select: none;
+    background: transparent;
+    mix-blend-mode: multiply;
+    filter: contrast(1.08) brightness(1.02);
+}
+
+[data-theme="dark"] .hero-video-fallback {
+    mix-blend-mode: screen;
+    filter: invert(1) hue-rotate(180deg) contrast(1.12) brightness(0.96);
+}
+
+
+
 
 .hero-title {
     font-size: clamp(2.5rem, 5vw, 4rem);
@@ -805,12 +881,32 @@
     .hero {
         flex-direction: column;
         text-align: center;
-        padding-top: 120px;
+        padding-top: calc(var(--nav-height) + 40px);
+        min-height: auto;
+        gap: 40px;
     }
 
     .hero-content {
         padding-right: 0;
         align-items: center;
+        max-width: 100%;
+    }
+
+    .hero-media {
+        width: 100%;
+        max-width: 360px;
+        margin: 0 auto;
+    }
+
+    .hero-video-wrapper {
+        width: 100%;
+    }
+
+    .hero-canvas,
+    .hero-video {
+        max-height: 480px;
+        width: 100%;
+        height: auto;
     }
 
 

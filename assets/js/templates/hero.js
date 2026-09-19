@@ -36,5 +36,14 @@ const HERO_HTML = `
       <a href="#" id="email-link" aria-label="Email"><i data-lucide="mail"></i></a>
     </div>
   </div>
+
+  <div class="hero-media">
+    <div class="hero-video-wrapper">
+      <canvas id="hero-canvas" class="hero-canvas" width="720" height="1280"></canvas>
+      <video id="hero-video" class="hero-video-source" autoplay loop muted playsinline preload="auto" disablepictureinpicture disableremoteplayback>
+        <source src="assets/videos/hero-video.mp4" type="video/mp4">
+      </video>
+    </div>
+  </div>
 </header>
 `;
