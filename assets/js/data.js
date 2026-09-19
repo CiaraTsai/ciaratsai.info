@@ -63,13 +63,16 @@ const i18nData = {
             viewRepoBtn: "View Repos",
             viewResumeBtn: "View Resume"
         },
+        footer: {
+            aiNotice: "Designed with Gemini AI assistance"
+        },
         profile: {
             name: "Ciara Tsai",
             effectName: "Ciara Tsai",
             effectHoverName: "Yen Ju Tsai",
             hoverName: "Ciara Tsai",
             title: "Senior Software Engineer",
-            slogan: "Doing my best to move the world perfectly one step forward is my definition of success.",
+            slogan: "Boundless curiosity, diving into unknowns to solve great challenges.",
             about: [
                 "I am a Senior Software Engineer specializing in backend architecture, database systems, distributed systems, and high-throughput real-time platforms.",
                 "I enjoy solving performance and reliability challenges in high-traffic and high-concurrency environments, and building scalable and reliable backend services. My experience includes system architecture, performance optimization, large-scale data processing, cloud deployment, and production troubleshooting.",
@@ -344,13 +347,16 @@ const i18nData = {
             viewRepoBtn: "查看專案庫",
             viewResumeBtn: "檢視履歷"
         },
+        footer: {
+            aiNotice: "本網站是使用 Gemini AI 輔助設計"
+        },
         profile: {
             name: "蔡燕如",
             effectName: "蔡燕如",
             effectHoverName: "Ciara Tsai",
             hoverName: "蔡燕如",
             title: "資深軟體工程師",
-            slogan: "盡我所能，推動世界往更美好的方向前進一步，即是我對成功的定義。",
+            slogan: "我擁有不設限的好奇心，我喜歡鑽進未知的科技領域解決難題",
             about: [
                 "我是一名資深軟體工程師，專長於後端架構、資料庫系統、分散式系統，以及高吞吐量的即時平台。",
                 "我喜歡解決高流量與高併發環境下的效能與穩定性問題，並打造具備高擴展性與可靠性的後端服務。過去的經驗涵蓋系統架構設計、效能優化、大規模資料處理、雲端部署，以及 Production 問題排查。",

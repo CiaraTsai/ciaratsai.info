@@ -1,6 +1,19 @@
 function getParticleTextColors() {
+    const currentTheme = document.documentElement.getAttribute('data-theme') || 'light';
+    if (currentTheme === 'dark') {
+        // Original bright coral / warm orange / rose gold for dark mode
+        return [
+            '#ff8a65', // Bright coral / orange
+            '#f0a58e', // Soft coral
+            '#e2a397', // Rose gold
+            '#ffb74d', // Bright amber highlight
+            '#fafaf9', // Crisp stone white
+            '#d6d3d1'  // Soft stone shimmer
+        ];
+    }
+
     // 4-Color Palette: Sage Green (#8B9A6E), Cream (#F7F2EB), Sand (#EAE2D6), Grey (#EEEEEE)
-    // with complementary deep olive charcoal (#2C3322) and deep sage (#75835C, #5F6B49) for crisp typography definition
+    // with complementary deep olive charcoal (#2C3322) and deep sage (#75835C, #5F6B49)
     return [
         '#8B9A6E',
         '#8B9A6E',
@@ -143,6 +156,16 @@ class ParticleText {
             p.curY += (Math.random() - 0.5) * 50;
         });
 
+        if (!this.animationId) this.animate();
+    }
+
+    refreshColors() {
+        const currentColors = getParticleTextColors();
+        this.particles.forEach(p => {
+            p.color = currentColors[Math.floor(Math.random() * currentColors.length)];
+            p.curX += (Math.random() - 0.5) * 20;
+            p.curY += (Math.random() - 0.5) * 20;
+        });
         if (!this.animationId) this.animate();
     }
 

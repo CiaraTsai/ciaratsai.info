@@ -1,19 +1,54 @@
-// Main Initialization and Event Binding
+// Theme Management
+let currentTheme = localStorage.getItem('theme') || 'light';
 
+function applyTheme(theme) {
+    currentTheme = theme;
+    document.documentElement.setAttribute('data-theme', theme);
+    localStorage.setItem('theme', theme);
+
+    // Update theme toggle icons (sun in dark mode, moon in light mode)
+    const iconName = theme === 'dark' ? 'sun' : 'moon';
+    const themeToggles = document.querySelectorAll('.theme-btn');
+    themeToggles.forEach(btn => {
+        btn.innerHTML = `<i data-lucide="${iconName}"></i>`;
+    });
+
+    if (typeof lucide !== 'undefined') {
+        lucide.createIcons();
+    }
+
+    // Refresh particle effects
+    if (window.nameEffect && typeof window.nameEffect.refreshColors === 'function') {
+        window.nameEffect.refreshColors();
+    }
+    if (typeof window.refreshBgParticles === 'function') {
+        window.refreshBgParticles();
+    }
+}
+
+function toggleTheme() {
+    const nextTheme = currentTheme === 'light' ? 'dark' : 'light';
+    applyTheme(nextTheme);
+}
+
+// Main Initialization and Event Binding
 document.addEventListener("DOMContentLoaded", () => {
     // 1. Inject Reusable Components (Navbar, Hero, Profile, etc.)
     if (typeof injectComponents === 'function') {
         injectComponents();
     }
 
-    // 2. Initialize Language (Requires injected DOM)
+    // 2. Initialize Theme
+    applyTheme(currentTheme);
+
+    // 3. Initialize Language (Requires injected DOM)
     if (typeof switchLanguage === 'function') switchLanguage(currentLang);
 
-    // 3. Update Footer Year
+    // 4. Update Footer Year
     const yearSpan = document.getElementById("current-year");
     if (yearSpan) yearSpan.textContent = new Date().getFullYear();
 
-    // 4. Bind Language Toggle Buttons
+    // 5. Bind Language Toggle Buttons
     const langToggles = document.querySelectorAll('.lang-btn');
     langToggles.forEach(btn => {
         btn.addEventListener('click', () => {
@@ -22,16 +57,22 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 
-    // 5. Initialize AntiGravity Particles (if canvas exists)
+    // 6. Bind Theme Toggle Buttons
+    const themeToggles = document.querySelectorAll('.theme-btn');
+    themeToggles.forEach(btn => {
+        btn.addEventListener('click', toggleTheme);
+    });
+
+    // 7. Initialize AntiGravity Particles (if canvas exists)
     if (typeof initParticles === 'function') initParticles();
 
-    // 6. Bind Interactive Glow Tracking for cards
+    // 8. Bind Interactive Glow Tracking for cards
     bindGlowTracking();
 
-    // 7. Initialize Hero Name Particle Effect
+    // 9. Initialize Hero Name Particle Effect
     initHeroEffect();
 
-    // 8. Bind Timeline Card Click Flip (supports mobile/touch)
+    // 10. Bind Timeline Card Click Flip (supports mobile/touch)
     document.addEventListener('click', (e) => {
         const timelineContent = e.target.closest('.timeline-content');
         if (timelineContent) {

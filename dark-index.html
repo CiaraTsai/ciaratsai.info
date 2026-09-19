@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Ciara Tsai - Personal Website</title>
+  <title>Ciara Tsai - Personal Website (Dark Theme)</title>
 
   <!-- Modern Google Font -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -17,7 +17,7 @@
   <link rel="stylesheet" href="assets/css/style.css">
   <script>
     (function () {
-      const savedTheme = localStorage.getItem('theme') || 'light';
+      const savedTheme = localStorage.getItem('theme') || 'dark';
       document.documentElement.setAttribute('data-theme', savedTheme);
     })();
   </script>
@@ -27,7 +27,7 @@
   <!-- AntiGravity Particle Canvas -->
   <canvas id="bg-canvas"></canvas>
 
-  <!-- Dynamic Component Containers -->
+  <!-- Dynamic Component Containers (Exact match with index.html) -->
   <div id="navbar-container"></div>
 
   <main>
@@ -39,7 +39,7 @@
 
   <div id="footer-container"></div>
 
-  <!-- Template Components (Script modules for modularity without fetch) -->
+  <!-- Template Components (Exact scripts of index.html) -->
   <script src="assets/js/templates/layout.js"></script>
   <script src="assets/js/templates/hero.js"></script>
   <script src="assets/js/templates/profile.js"></script>
@@ -54,6 +54,8 @@
   <script src="assets/js/particles.js"></script>
   <script src="assets/js/text-effects.js"></script>
   <script src="assets/js/main.js"></script>
+
+  <!-- Helper Scripts (Exact copy of index.html) -->
   <script>
     function copyCrypto(element, address) {
       navigator.clipboard.writeText(address).then(() => {
