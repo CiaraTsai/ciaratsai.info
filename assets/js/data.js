@@ -575,5 +575,5 @@ const contactsData = {
     github: "https://github.com/CiaraTsai",
     gitlab: "https://gitlab.com/CiaraTsai",
     linkedin: "https://www.linkedin.com/in/yen-ju-tsai-0544676b/",
-    resume: "https://www.dropbox.com/scl/fi/23ajh3q0bn1nl3u2um9sd/2026-Ciara-Tsai-Online-Resume-Publish.pdf?rlkey=3t1fckjemh9dseai537b5ebn5&st=k08t3zr8&dl=0"
+    resume: "https://www.dropbox.com/scl/fi/23ajh3q0bn1nl3u2um9sd/Ciara-Tsai-Online-Resume-Publish.pdf?rlkey=3t1fckjemh9dseai537b5ebn5&st=jyq5n6kd&dl=0"
 };
