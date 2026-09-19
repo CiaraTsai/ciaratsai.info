@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ciara Tsai - Personal Website (Preview)</title>
+
+  <!-- Modern Google Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Lucide Icons via CDN for standard UI icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <!-- Original Base Stylesheet -->
+  <link rel="stylesheet" href="assets/css/style.css">
+
+  <!-- =========================================================================
+       NEW 4-COLOR PALETTE OVERRIDE (#8B9A6E, #F7F2EB, #EAE2D6, #EEEEEE)
+       Preserving 100% of index.html layout and text content
+       ========================================================================= -->
+  <style id="palette-override">
+    :root {
+      /* User Specified 4-Color Palette */
+      --c-sage: #8B9A6E;       /* Primary Accent & Brand */
+      --c-cream: #F7F2EB;      /* Main Canvas & Light Tone */
+      --c-sand: #EAE2D6;       /* Secondary Section & Card Tint */
+      --c-grey: #EEEEEE;       /* Neutral Surface & Border */
+
+      /* Theme Variables Remapping */
+      --bg-primary: #F7F2EB;
+      --bg-secondary: #EAE2D6;
+      --bg-tertiary: #EEEEEE;
+
+      --text-primary: #2C3322;
+      --text-secondary: #5F6B49;
+
+      --accent-color: #8B9A6E;
+      --accent-glow: rgba(139, 154, 110, 0.28);
+      --accent-hover: #75835C;
+      --secondary-accent: #8B9A6E;
+
+      --card-bg: rgba(247, 242, 235, 0.88);
+      --card-border: #EAE2D6;
+      --glass-blur: blur(16px);
+
+      --shadow-sm: 0 4px 12px rgba(139, 154, 110, 0.08);
+      --shadow-md: 0 10px 30px rgba(139, 154, 110, 0.12);
+      --shadow-glow: 0 0 20px rgba(139, 154, 110, 0.35);
+      --glass-shadow: 0 8px 32px 0 rgba(139, 154, 110, 0.08);
+
+      --grid-color: rgba(139, 154, 110, 0.08);
+      --scanline-color: rgba(139, 154, 110, 0.02);
+    }
+
+    /* Base Body & Layout */
+    body {
+      background-color: var(--bg-primary) !important;
+      color: var(--text-primary) !important;
+    }
+
+    body::before {
+      background-image:
+        linear-gradient(var(--grid-color) 1px, transparent 1px),
+        linear-gradient(90deg, var(--grid-color) 1px, transparent 1px) !important;
+    }
+
+    body::after {
+      opacity: 0.15 !important;
+      background: linear-gradient(to bottom,
+        transparent,
+        var(--scanline-color) 50%,
+        transparent 50%) !important;
+    }
+
+    /* Typography */
+    h1, h2, h3, h4, h5 {
+      color: var(--text-primary) !important;
+    }
+
+    p {
+      color: var(--text-secondary) !important;
+    }
+
+    a {
+      color: var(--accent-color) !important;
+    }
+
+    a:hover {
+      color: var(--text-primary) !important;
+    }
+
+    .highlight-text {
+      color: var(--accent-color) !important;
+    }
+
+    .section-title {
+      color: var(--text-primary) !important;
+    }
+
+    .section-title::before,
+    .section-title::after {
+      color: var(--accent-color) !important;
+    }
+
+    .section-wrapper.light {
+      background-color: var(--bg-secondary) !important;
+    }
+
+    .section-wrapper::before {
+      color: var(--accent-glow) !important;
+      opacity: 0.7 !important;
+    }
+
+    /* Fixed Navbar */
+    .navbar {
+      background: rgba(247, 242, 235, 0.88) !important;
+      border-bottom: 1px solid var(--c-sand) !important;
+    }
+
+    .navbar.scrolled {
+      background: rgba(247, 242, 235, 0.98) !important;
+      box-shadow: 0 4px 20px rgba(139, 154, 110, 0.1) !important;
+    }
+
+    .nav-logo {
+      color: var(--text-primary) !important;
+    }
+
+    .nav-links a {
+      color: var(--text-primary) !important;
+    }
+
+    .nav-links a:hover {
+      color: var(--accent-color) !important;
+    }
+
+    .mobile-menu-btn {
+      color: var(--text-primary) !important;
+    }
+
+    .mobile-links {
+      background: var(--bg-primary) !important;
+      border-bottom: 1px solid var(--c-sand) !important;
+    }
+
+    .mobile-links a {
+      color: var(--text-primary) !important;
+    }
+
+    /* Hero Section */
+    .hero-title {
+      color: var(--text-primary) !important;
+    }
+
+    .hero-title::before {
+      color: var(--accent-color) !important;
+    }
+
+    .hero-subtitle {
+      color: var(--text-secondary) !important;
+    }
+
+    .hero-slogan {
+      border-left: 2px solid var(--accent-color) !important;
+      color: var(--text-secondary) !important;
+    }
+
+    .hero-social a {
+      background-color: var(--bg-secondary) !important;
+      color: var(--text-primary) !important;
+      border: 1px solid var(--c-grey) !important;
+    }
+
+    .hero-social a:hover {
+      background-color: var(--accent-color) !important;
+      color: var(--bg-primary) !important;
+    }
+
+    /* Buttons */
+    .btn-primary {
+      background-color: var(--accent-color) !important;
+      color: var(--bg-primary) !important;
+      border: 1px solid var(--accent-color) !important;
+    }
+
+    .btn-primary:hover {
+      background-color: var(--accent-hover) !important;
+      color: #FFFFFF !important;
+      box-shadow: 0 0 20px var(--accent-glow) !important;
+    }
+
+    .btn-secondary {
+      background-color: var(--bg-secondary) !important;
+      color: var(--text-primary) !important;
+      border: 1px solid var(--accent-color) !important;
+    }
+
+    .btn-secondary:hover {
+      background-color: var(--accent-color) !important;
+      color: var(--bg-primary) !important;
+      box-shadow: 0 0 15px var(--accent-glow) !important;
+    }
+
+    .lang-btn {
+      background: var(--bg-secondary) !important;
+      color: var(--text-primary) !important;
+      border: 1px solid var(--accent-color) !important;
+    }
+
+    .lang-btn:hover {
+      background: var(--accent-color) !important;
+      color: var(--bg-primary) !important;
+    }
+
+    /* Cards & Glassmorphism */
+    .glass-card {
+      background: rgba(247, 242, 235, 0.9) !important;
+      border: 1px solid var(--c-sand) !important;
+      box-shadow: var(--glass-shadow) !important;
+    }
+
+    .glass-card:hover {
+      border-color: var(--accent-color) !important;
+      box-shadow: 0 12px 32px rgba(139, 154, 110, 0.18) !important;
+    }
+
+    .glass-card::after {
+      background: linear-gradient(225deg, var(--accent-color) 0%, transparent 50%) !important;
+      opacity: 0.3 !important;
+    }
+
+    .glass-card::before {
+      background: radial-gradient(circle, rgba(139, 154, 110, 0.15) 0%, transparent 70%) !important;
+    }
+
+    /* Skills */
+    .skill-group h3 {
+      color: var(--text-primary) !important;
+    }
+
+    .skill-group h3::after {
+      background: var(--accent-color) !important;
+    }
+
+    .skill-tag {
+      background: var(--accent-color) !important;
+      color: var(--bg-primary) !important;
+      border: 1px solid var(--accent-color) !important;
+      transition: all 0.25s ease !important;
+    }
+
+    .skill-tag:hover {
+      background: var(--c-sand) !important;
+      color: var(--text-primary) !important;
+      border-color: var(--accent-color) !important;
+      box-shadow: 0 4px 12px var(--accent-glow) !important;
+      transform: translateY(-2px);
+    }
+
+    .timeline-card-back h3 {
+      border-bottom: 1px solid var(--c-sand) !important;
+    }
+
+    .tech-tag {
+      background: var(--accent-color) !important;
+      color: var(--bg-primary) !important;
+      border: 1px solid var(--accent-color) !important;
+      transition: all 0.25s ease !important;
+    }
+
+    .tech-tag:hover {
+      background: var(--c-sand) !important;
+      color: var(--text-primary) !important;
+      border-color: var(--accent-color) !important;
+      box-shadow: 0 4px 12px var(--accent-glow) !important;
+      transform: translateY(-2px);
+    }
+
+    /* Timeline (Experience) */
+    .timeline::before {
+      background: var(--c-sand) !important;
+    }
+
+    .timeline-dot {
+      background: var(--bg-primary) !important;
+      border: 2px solid var(--accent-color) !important;
+    }
+
+    .timeline-item:hover .timeline-dot {
+      background: var(--accent-color) !important;
+      box-shadow: 0 0 0 4px var(--accent-glow) !important;
+    }
+
+    .timeline-date {
+      color: var(--accent-color) !important;
+    }
+
+    .timeline-content h3 {
+      color: var(--text-primary) !important;
+    }
+
+    .timeline-content h4 {
+      color: var(--text-secondary) !important;
+    }
+
+    .timeline-content li {
+      color: var(--text-secondary) !important;
+    }
+
+    .timeline-tag {
+      background: var(--c-grey) !important;
+      color: var(--text-primary) !important;
+      border: 1px solid var(--c-sand) !important;
+    }
+
+    /* Terminal & Contact Section */
+    .terminal-window {
+      background: rgba(247, 242, 235, 0.95) !important;
+      border: 1px solid var(--c-sand) !important;
+    }
+
+    .terminal-header {
+      background: var(--c-sand) !important;
+      border-bottom: 1px solid var(--c-grey) !important;
+    }
+
+    .terminal-title {
+      color: var(--text-primary) !important;
+    }
+
+    .terminal-prompt {
+      color: var(--accent-color) !important;
+    }
+
+    .contact-card {
+      background: #FFFFFF !important;
+      border: 1px solid var(--c-sand) !important;
+    }
+
+    .contact-card:hover {
+      border-color: var(--accent-color) !important;
+    }
+
+    .contact-card-icon {
+      background: var(--c-sand) !important;
+      color: var(--accent-color) !important;
+    }
+
+    .contact-card-title {
+      color: var(--text-primary) !important;
+    }
+
+    .contact-card-desc {
+      color: var(--text-secondary) !important;
+    }
+
+    .contact-card-value {
+      background: var(--c-grey) !important;
+      border: 1px solid var(--c-sand) !important;
+      color: var(--text-primary) !important;
+    }
+
+    .contact-action-btn {
+      background: var(--c-sand) !important;
+      color: var(--text-primary) !important;
+      border: 1px solid var(--c-sand) !important;
+    }
+
+    .contact-action-btn:hover {
+      background: var(--accent-color) !important;
+      color: var(--bg-primary) !important;
+    }
+
+    .contact-action-btn.copy-btn.copied {
+      background: var(--accent-color) !important;
+      color: var(--bg-primary) !important;
+    }
+
+    /* Project, Book & Contest Cards */
+    .project-card, .book-card, .contest-card, .donate-card {
+      background: #FFFFFF !important;
+      border: 1px solid var(--c-sand) !important;
+    }
+
+    .project-card:hover, .book-card:hover, .contest-card:hover, .donate-card:hover {
+      border-color: var(--accent-color) !important;
+    }
+
+    .donate-icon-wrapper {
+      background: var(--c-sand) !important;
+      color: var(--accent-color) !important;
+    }
+
+    /* Footer */
+    .footer {
+      background: var(--bg-secondary) !important;
+      border-top: 1px solid var(--c-grey) !important;
+      color: var(--text-secondary) !important;
+    }
+
+    .footer p {
+      color: var(--text-secondary) !important;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- AntiGravity Particle Canvas -->
+  <canvas id="bg-canvas"></canvas>
+
+  <!-- Dynamic Component Containers (Exact match with index.html) -->
+  <div id="navbar-container"></div>
+
+  <main>
+    <div id="hero-container"></div>
+    <div id="profile-container"></div>
+    <div id="portfolio-container"></div>
+    <div id="contact-container"></div>
+  </main>
+
+  <div id="footer-container"></div>
+
+  <!-- Template Components (Exact scripts of index.html) -->
+  <script src="assets/js/templates/layout.js"></script>
+  <script src="assets/js/templates/hero.js"></script>
+  <script src="assets/js/templates/profile.js"></script>
+  <script src="assets/js/templates/portfolio.js"></script>
+  <script src="assets/js/templates/contact.js"></script>
+
+  <!-- Data and Logic -->
+  <script src="assets/js/data.js"></script>
+  <script src="assets/js/i18n.js"></script>
+  <script src="assets/js/components.js"></script>
+  <script src="assets/js/render.js"></script>
+  <script src="assets/js/particles.js"></script>
+  <script src="assets/js/text-effects.js"></script>
+  <script src="assets/js/main.js"></script>
+
+  <!-- Helper Scripts (Exact copy of index.html) -->
+  <script>
+    function copyCrypto(element, address) {
+      navigator.clipboard.writeText(address).then(() => {
+        element.classList.add('copied');
+        setTimeout(() => {
+          element.classList.remove('copied');
+        }, 2000);
+      });
+    }
+
+    function copyContactText(element, text) {
+      navigator.clipboard.writeText(text).then(() => {
+        const textSpan = element.querySelector('.btn-text');
+        const copiedText = element.getAttribute('data-copied-text') || 'Copied!';
+        const originalText = textSpan ? textSpan.textContent : '';
+        element.classList.add('copied');
+        if (textSpan) textSpan.textContent = copiedText;
+        setTimeout(() => {
+          element.classList.remove('copied');
+          if (textSpan) textSpan.textContent = originalText;
+        }, 2000);
+      });
+    }
+
+    // Particle color override for Sage Green Palette
+    window.addEventListener('load', () => {
+      // Re-tune Particle background colors to match #8B9A6E / #EAE2D6
+      const canvas = document.getElementById('bg-canvas');
+      if (canvas) {
+        // Soft opacity for light background
+        canvas.style.opacity = '0.45';
+      }
+    });
+  </script>
+</body>
+
+</html>

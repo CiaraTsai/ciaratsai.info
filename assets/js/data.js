@@ -118,11 +118,6 @@ const i18nData = {
                 category: "Observability", items: [
                     "ELK", "OpenTelemetry", "Grafana"
                 ]
-            },
-            {
-                category: "Methodologies", items: [
-                    "Scrum", "Agile", "Technical Leadership"
-                ]
             }
         ],
         experience: [
@@ -194,6 +189,19 @@ const i18nData = {
                     "Designed and implemented database architecture and backend business logic for game platforms, administration systems, and accounting/reporting workflows."
                 ],
                 technologies: [".NET MVC & Core (C#)", "JavaScript", "Redis", "MSSQL", "NetMQ", "SignalR", "Angular", "MongoDB"]
+            },
+            {
+                id: 5,
+                role: "System Engineering Intern",
+                company: "Zhi-Huang Network Technology, Taiwan",
+                period: "07/2011 - 09/2011",
+                project: "EasyTravel (四方通行) - Mobile Application Engineer (Android)",
+                description: [
+                    "Developed and maintained mobile features for Android applications.",
+                    "Engineered location-based mapping features, integrating GIS and Google Maps API for positioning and map rendering.",
+                    "Contributed to the development of a diary/blogging platform using PHP and MySQL."
+                ],
+                technologies: ["Android", "Java", "GIS", "Google Maps API", "PHP", "MySQL"]
             }
         ],
         projects: [
@@ -391,11 +399,6 @@ const i18nData = {
                 category: "Observability (可觀測性與監控)", items: [
                     "ELK", "OpenTelemetry", "Grafana"
                 ]
-            },
-            {
-                category: "Methodologies (專案方法與領導)", items: [
-                    "Scrum", "Agile", "Technical Leadership"
-                ]
             }
         ],
         experience: [
@@ -467,6 +470,19 @@ const i18nData = {
                     "為遊戲平台、管理後台以及會計／報表工作流程規劃並實作資料庫架構與後端商業邏輯。"
                 ],
                 technologies: [".NET MVC & Core (C#)", "JavaScript", "Redis", "MSSQL", "NetMQ", "SignalR", "Angular", "MongoDB"]
+            },
+            {
+                id: 5,
+                role: "系統工程實習生 (System Engineering Intern)",
+                company: "智凰網路科技公司 (Zhi-Huang Network Technology)",
+                period: "07/2011 - 09/2011",
+                project: "四方通行 行動裝置軟體開發工程師",
+                description: [
+                    "負責 Android 行動裝置軟體開發與功能維護。",
+                    "開發行動裝置定位製圖技術，整合 GIS 與 Google Maps API 實現地圖標記與定位功能。",
+                    "參與寫日記平台系統與資料庫開發 (PHP & MySQL)。"
+                ],
+                technologies: ["Android", "Java", "GIS", "Google Maps API", "PHP", "MySQL"]
             }
         ],
         projects: [

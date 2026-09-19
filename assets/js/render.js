@@ -312,7 +312,7 @@ function renderContent() {
                     <div class="contact-card-desc">${c.resumeDesc}</div>
                 </div>
             </div>
-            <div class="contact-card-value">Dropbox Online Resume (.docx)</div>
+            <div class="contact-card-value">Online Resume</div>
             <div class="contact-card-actions">
                 <a href="${contactsData.resume}" target="_blank" rel="noopener noreferrer" class="btn btn-secondary contact-action-btn">
                     <i data-lucide="download" style="width: 14px; height: 14px; margin-right: 6px;"></i> ${c.viewResumeBtn}

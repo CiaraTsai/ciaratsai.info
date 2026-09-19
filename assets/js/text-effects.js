@@ -1,10 +1,24 @@
+function getParticleTextColors() {
+    // 4-Color Palette: Sage Green (#8B9A6E), Cream (#F7F2EB), Sand (#EAE2D6), Grey (#EEEEEE)
+    // with complementary deep olive charcoal (#2C3322) and deep sage (#75835C, #5F6B49) for crisp typography definition
+    return [
+        '#8B9A6E',
+        '#8B9A6E',
+        '#75835C',
+        '#2C3322',
+        '#5F6B49',
+        '#9CAD7E',
+        '#EAE2D6'
+    ];
+}
+
 class Particle {
     constructor(x, y) {
         this.x = Math.random() * window.innerWidth;
         this.y = Math.random() * window.innerHeight;
         this.targetX = x;
         this.targetY = y;
-        const colors = ['#e2a397', '#f0a58e', '#fafaf9', '#d6d3d1', '#78716c'];
+        const colors = getParticleTextColors();
         this.color = colors[Math.floor(Math.random() * colors.length)];
         this.size = Math.random() * 0.8 + 0.4; // Smaller particles for finer detail
         this.baseSize = this.size;
@@ -119,9 +133,11 @@ class ParticleText {
         }
 
         newTargets.sort(() => Math.random() - 0.5);
+        const currentColors = getParticleTextColors();
         this.particles.forEach((p, i) => {
             p.targetX = newTargets[i].x;
             p.targetY = newTargets[i].y;
+            p.color = currentColors[Math.floor(Math.random() * currentColors.length)];
             // Burst
             p.curX += (Math.random() - 0.5) * 50;
             p.curY += (Math.random() - 0.5) * 50;

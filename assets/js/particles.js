@@ -7,7 +7,10 @@ function initParticles() {
     let width, height;
     let particles = [];
 
-    const colors = ['rgba(59, 130, 246, 0.4)', 'rgba(147, 197, 253, 0.6)'];
+    const isSageTheme = Boolean(document.getElementById('palette-override') || (typeof getComputedStyle === 'function' && getComputedStyle(document.documentElement).getPropertyValue('--c-sage').trim()));
+    const colors = isSageTheme
+        ? ['rgba(139, 154, 110, 0.35)', 'rgba(117, 131, 92, 0.45)', 'rgba(234, 226, 214, 0.5)']
+        : ['rgba(59, 130, 246, 0.4)', 'rgba(147, 197, 253, 0.6)'];
 
     function resize() {
         width = window.innerWidth;
@@ -68,7 +71,8 @@ function initParticles() {
 
                 if (dist < 150) { // Increased connection distance
                     ctx.beginPath();
-                    ctx.strokeStyle = `rgba(56, 189, 248, ${0.1 * (1 - dist / 150)})`; // Neon color, adjusted alpha
+                    const strokeRgb = isSageTheme ? '139, 154, 110' : '56, 189, 248';
+                    ctx.strokeStyle = `rgba(${strokeRgb}, ${0.12 * (1 - dist / 150)})`;
                     ctx.lineWidth = 0.5; // Thinner lines
                     ctx.moveTo(p1.x, p1.y);
                     ctx.lineTo(p2.x, p2.y);
