@@ -149,6 +149,11 @@
     letter-spacing: -0.5px;
 }
 
+.nav-links {
+    display: flex;
+    align-items: center;
+}
+
 .nav-links a {
     margin-left: 32px;
     color: var(--text-primary);
